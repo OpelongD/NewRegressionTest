@@ -1,11 +1,11 @@
-package starter.stepdefinitions;
+package PageObject.FleetStepsDefinition;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
-import starter.actions.NavigateSteps;
-import starter.actions.SearchSteps;
+import PageObject.actions.NavigateSteps;
+import PageObject.actions.SearchSteps;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

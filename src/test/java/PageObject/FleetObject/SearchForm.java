@@ -1,4 +1,4 @@
-package starter.pageobjects;
+package PageObject.FleetObject;
 
 import net.serenitybdd.annotations.DefaultUrl;
 import net.serenitybdd.core.pages.PageObject;
