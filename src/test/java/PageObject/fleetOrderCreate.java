@@ -5,6 +5,8 @@ import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,6 +15,10 @@ import java.time.Duration;
 import java.util.Objects;
 
 public class fleetOrderCreate extends PageObject {
+
+    // Browser types
+    public static final String CHROME = "chrome";
+    public static final String FIREFOX = "firefox";
 
 
     // Login IN elements
@@ -39,7 +45,22 @@ public class fleetOrderCreate extends PageObject {
         super(driver);
     }
 
-        
+
+    // Initializing browser
+    public static WebDriver setupBrowser(String browserType) {
+        WebDriver driver;
+        if (browserType.equalsIgnoreCase(CHROME)) {
+            driver = new ChromeDriver();
+        } else if (browserType.equalsIgnoreCase(FIREFOX)) {
+            driver = new FirefoxDriver();
+        } else {
+            throw new IllegalArgumentException("Browser type not supported: " + browserType);
+        }
+        driver.manage().window().maximize();
+        return driver;
+    }
+
+
     @Step("User access Fleet Website ")
     public void TMSWebsite () {
             getDriver().get(Url);
